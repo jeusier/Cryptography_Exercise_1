@@ -7,7 +7,7 @@ function Crypto(keyString, messageString) {
     this.key = keyString.split('');
     this.message = messageString.split('');
 
-    //create function that takes a key and message parameters
+    //encodes the message using the key as a cipher
     this.encoder = function(){
         
         //create array to hold encoded message
@@ -28,14 +28,14 @@ function Crypto(keyString, messageString) {
             encoded.push(this.codeTable[code]);
         }
         //return string of encoded array
-        console.log(encoded.join(''));  
         return encoded.join('');
                      
     }
 
-    //create function that takes a key and message parameters
+    //decodes the encrypted message using the key as a cipher
     this.decoder = function(){
         
+        //create array to hold decoded message
         var decoded = new Array();
 
         //loop through message to find values for key/message indexes from cipher
@@ -53,7 +53,7 @@ function Crypto(keyString, messageString) {
             //push value of index into array
             decoded.push(this.codeTable[code]);
         }
-        console.log(decoded.join(''));
+        //return string of decoded array
         return decoded.join('');
                      
     }
